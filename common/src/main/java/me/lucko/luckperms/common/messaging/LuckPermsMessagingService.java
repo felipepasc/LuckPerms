@@ -246,7 +246,7 @@ public class LuckPermsMessagingService implements InternalMessagingService, Inco
         } else if (message instanceof UserUpdateMessage) {
             UserUpdateMessage msg = (UserUpdateMessage) message;
 
-            User user = this.plugin.getUserManager().getIfLoaded(msg.getUserUniqueId());
+            User user = this.plugin.getUserManager().getOrMake(msg.getUserUniqueId());
             if (user == null) {
                 return;
             }
